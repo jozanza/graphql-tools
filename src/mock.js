@@ -194,6 +194,11 @@ class MockList {
     }
   }
 
+  *[Symbol.iterator]() {
+    const arr = this.mock();
+    for (let value of arr) yield value;
+  }
+
   mock(o, a, c, r, fieldType, mockTypeFunc) {
     function randint(low, high) {
       return Math.floor(Math.random() * (high - low + 1) + low);
